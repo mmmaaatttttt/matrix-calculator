@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>I'M A CALCULATOR</title>
-  <link rel="stylesheet" href="/stylesheets/app.css">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/stylesheets/calculator.css">
 </head>
 <body class="container-fluid">
-  I'm a calculator! Ask me to do some math!
+  <div id="calculatorArea">
+    I'm a calculator! Ask me to do some math!
 
-  <% if (op) { %>
-    <%= num1 + " " + op + " " + num2 + " = " + result %>
-  <% } %>
+    <% if (op) { %>
+      <div id="result">
+        <%= num1 + " " + op + " " + num2 + " = " + result %>
+      </div>
+    <% } %>
+  </div>
+  <canvas id="q"></canvas>
 </body>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="/javascripts/calculator.js"></script>
 </html>

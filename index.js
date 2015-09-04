@@ -1,7 +1,9 @@
 var express = require('express'),
   app = express();
 
-app.set('view engine', 'ejs');  
+app.set('view engine', 'ejs');
+
+app.use(express.static("public"));  
 
 app.get("/", function(req, res) {
   res.render("index", {
@@ -22,12 +24,14 @@ var doMath = {
 }
 
 app.get('/:operation/:num1/:num2', function(req, res) {
-
+  var num1 = parseFloat(req.params.num1),
+    num2 = parseFloat(req.params.num2),
+    mathInfo = doMath[req.params.operation];
   res.render("index", {
-    result: doMath[req.params.operation].method(parseFloat(req.params.num1),parseFloat(req.params.num2)),
-    op: doMath[req.params.operation].string,
-    num1: req.params.num1,
-    num2: req.params.num2
+    result: mathInfo.method(num1,num2),
+    op: mathInfo.string,
+    num1: num1,
+    num2: num2
   });
 
 });  
